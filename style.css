@@ -9,3 +9,22 @@
 .levelpointer {
     cursor: url('icons8-level-up-48.png') 1 1, pointer;
 }
+footer {
+    background-image: url('alyzah-k-K24CPeh-T5U-unsplash.jpg');
+    background-position: center;
+    background-size: 100%; /* Adjust this percentage to make the image smaller */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the content grows to push footer down */
+.content {
+    flex: 1;
+}
