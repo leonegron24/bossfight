@@ -1,0 +1,11 @@
+.swordpointer {
+    cursor: url(icons8-katana-sword-30.png) 1 1, pointer; /* Adjust the hotspot as needed */
+}
+
+.healthpointer {
+    cursor: url('icons8-heal-48.png') 1 1, pointer;
+}
+
+.levelpointer {
+    cursor: url('icons8-level-up-48.png') 1 1, pointer;
+}

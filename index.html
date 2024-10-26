@@ -13,39 +13,69 @@
 </head>
 
 <body class="debug bg-dark">
-    <header class="row justify-content-center">
-        <div class="col-5 text-white m-4 p-4">
-            <div class="text-center">
-                <i class="mdi mdi-fencing" id="heroName">Hero</i> <i class="mdi mdi-fencing"></i>
+
+    <!-- SECTION Hero -->
+    <section class="container justify-content-center">
+        <div class="row text-white m-4 p-4">
+
+            <div class="text-center col-6">
+                <i class="mdi mdi-fencing">Slate Slabrock</i> 
+                <i class="mdi mdi-fencing"></i>
+                <h1 class="text-center">
+                    🦸‍♂️
+                </h1>
+                <div id="myHero">
+                    <div> 🗺️ : dwarf </div>
+                    <div id="dps0Hero"> ⚔️ : 5 </div>
+                    <div id="hero0Hp"> ❤️ : 100 </div>
+                    <div id="hero0Lvl"> 🎚️ : 1 </div>
+                </div>
             </div>
-            <div id="myHero">
-                <div id="race">🗺️ :</div>
-                <div id="dpsHero">⚔️ : </div>
-                <div id="heroHp">❤️ :</div>
-                <div id="heroLvl">🎚️ :</div>
+
+            <div class="text-center col-6">
+                <i class="mdi mdi-fencing">Swift Ironstag</i> 
+                <i class="mdi mdi-fencing"></i>
+                <h1 class="text-center">
+                    🦸‍♂️
+                </h1>
+                <div id="myHero">
+                    <div> 🗺️ : elf </div>
+                    <div id="dps1Hero"> ⚔️ : 10</div>
+                    <div id="hero1Hp"> ❤️ : 50</div>
+                    <div id="hero1Lvl"> 🎚️ : 1</div>
+                </div>
             </div>
         </div>
-        <div class="col-5 text-white m-4 p-4">
-            <div class="text-center">
-                <i class="mdi mdi-emoticon-devil" id="bossName">Foe</i> <i class="mdi mdi-emoticon-devil"></i>
+    </section>
+    
+    <!-- SECTION Boss -->
+     <section class="container justify-content-center">
+         <div class="row text-white m-4 p-4">
+             <div class="text-center">
+                 <i class="mdi mdi-emoticon-devil" id="bossName">Foe</i> <i class="mdi mdi-emoticon-devil"></i>
+                </div>
+                <h1 class="d-flex justify-content-center">
+                    <p class="text-center swordpointer" onclick="attackBoss()">🦹‍♂️</p>
+                </h1>
+                <div id="myFoe">
+                    <div id="bossType">🗺️ :</div>
+                    <div id="dpsBoss">⚔️ :</div>
+                    <div id="bossHp">❤️ :</div>
+                    <div id="bossMaxHp">🫀 :</div>
+                    <div id="bossLvl">🎚️ :</div>
+                </div>
             </div>
-            <div id="myFoe">
-                <div id="bossType">🗺️ :</div>
-                <div id="dpsBoss">⚔️ :</div>
-                <div id="bossHp">❤️ :</div>
-                <div id="bossMaxHp">🫀 :</div>
-                <div id="bossLvl">🎚️ :</div>
-            </div>
-        </div>
-    </header>
-    <main class="row img-fluid">
-        <img src="alyzah-k-K24CPeh-T5U-unsplash.jpg" alt="">
-    </main>
-    <footer class="row text-bold text-white text-center m-4 p-4">
-        <h1>
-            DARK SOULS
-        </h1>
-    </footer>
+        </section>
+        <section>
+            <h1 class="text-center text-white p-4" id="gold"> 0 </h1> 
+            <h1 class="text-center">💰</h1>
+            <h1 class="d-flex justify-content-center text-white">
+                <p class="m-4 p-4 healthpointer" onclick="healthPack()">💚</p>
+                <p class="m-4 p-4 levelpointer" onclick="levelUp()">⬆️</p>
+            </h1>
+        </section>
+
+
     
 
 
