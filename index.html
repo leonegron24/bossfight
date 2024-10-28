@@ -17,34 +17,47 @@
         <!-- SECTION Hero -->
         <section class="container justify-content-center">
             <div class="row text-white m-4 p-4">
-                
+
+                <!-- SLATE / HERO 0 -->
                 <div class="text-center col-6">
                     <i class="mdi mdi-fencing">Slate Slabrock</i> 
                     <i class="mdi mdi-fencing"></i>
                     <h1 class="text-center">
                         🦸‍♂️
                     </h1>
-                    <div id="myHero">
+                    <div id="slate">
                         <div> 🗺️ : dwarf </div>
                         <div id="dps0Hero"> ⚔️ : 5 </div>
                         <div id="hero0Hp"> ❤️ : 100 </div>
                         <div id="hero0Lvl"> 🎚️ : 1 </div>
                     </div>
+                    <div class="d-flex justify-content-center m-3 fs-1">
+                        <p class="healthpointer m-4" onclick="healthPack('Slate Slabrock')">💚</p>
+                        <p class="levelpointer m-4" onclick="levelUp('Slate Slabrock')">⬆️</p>
+                    </div>
                 </div>
-                
+                <!-- Swift / Hero 1 -->
                 <div class="text-center col-6">
                     <i class="mdi mdi-fencing">Swift Ironstag</i> 
                     <i class="mdi mdi-fencing"></i>
                     <h1 class="text-center">
                         🦸‍♂️
                     </h1>
-                    <div id="myHero">
+                    <div id="swift">
                         <div> 🗺️ : elf </div>
                         <div id="dps1Hero"> ⚔️ : 10</div>
                         <div id="hero1Hp"> ❤️ : 50</div>
                         <div id="hero1Lvl"> 🎚️ : 1</div>
                     </div>
+                    <div class="d-flex justify-content-center m-3 fs-1">
+                        <p class="healthpointer m-4" onclick="healthPack('Swift Ironstag')">💚</p>
+                        <p class="levelpointer m-4" onclick="levelUp('Swift Ironstag')">⬆️</p>
+                    </div>
                 </div>
+                <!-- Monsters Killed -->
+                 <div class="text-danger fw-bold fs-2 text-center">
+                    # Bosses Killed: <span class="text-warning fw-bold" id="numBoss"> 0 </span>
+                 </div>
             </div>
         </section>
         
@@ -66,13 +79,9 @@
                 </div>
             </div>
         </section>
-        <section>
-            <h1 class="text-center text-white p-4" id="gold"> 0 </h1> 
-            <h1 class="text-center">💰</h1>
-            <h1 class="d-flex justify-content-center text-white">
-                <p class="m-4 p-4 healthpointer" onclick="healthPack()">💚</p>
-                <p class="m-4 p-4 levelpointer" onclick="levelUp()">⬆️</p>
-            </h1>
+        <section class="d-flex text-white justify-content-center">
+            <h1 class="text-center mx-2">💰 : </h1>
+            <h1 class="text-center text-white" id="gold"> 0 </h1> 
         </section>
         
         

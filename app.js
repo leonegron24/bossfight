@@ -25,7 +25,7 @@ const boss =
     level: 1
 }
 
-// SECTION Const List
+// SECTION Const List --- I imagine I need to look into optimizing, possibly use the query selector? I wasn't sure how much better that would be...
 // Hero
 const elmDps0Hero =document.getElementById('dps0Hero')
 const elmDps1Hero =document.getElementById('dps1Hero')
@@ -46,8 +46,14 @@ const elmBossLvl =document.getElementById('bossLvl')
 // Gold
 const elmGold = document.getElementById('gold')
 
+// Number of Bosses Killed
+const elmNumBoss = document.getElementById('numBoss')
+let intBoss = elmNumBoss.innerHTML
+let numBoss = parseInt(intBoss)
+
+// SECTION Draw Hero possibility, review with Jake. Tried making Hero cards, but didnt want to waste too much time diving into this feature. 
+
 // function drawHero(){
-    
 //    heroes.forEach(hero => {
 //     let raceHero = hero.race
 //     let nameHero = hero.name
@@ -77,8 +83,9 @@ function drawBoss(){
      elmBossLvl.innerHTML = "🎚️ : " + bossLvl
 
 }
-
+// SECTION Hero attacks Boss
 function attackBoss() {
+    // Level Up Boss if Killed, show # of bosses killed...
     if (boss.health ===0){
         boss.health=0
         let gold = 0
@@ -88,65 +95,84 @@ function attackBoss() {
         boss.health = boss.maxHealth
         gold = 100*boss.level
         elmGold.innerHTML = gold
+        // Number of Bosses Killed increments here
+        numBoss += 1
+        console.log(numBoss)
+        elmNumBoss.innerHTML = numBoss
     }
-
+    // Damage Per Hit
     let totalDamage = 0
     heroes.forEach(hero => {
         console.log(hero.damage)
         totalDamage += hero.damage
     })
-    console.log("Boss HP Before AttackL: " + boss.health)
+    // Boss HP after HIt
     boss.health -= totalDamage
-    console.log(boss.health)
     elmBossHp.InnerHTML = boss.health
     if (boss.health<0){
         boss.health =0
     }
+    // Draw Boss
     drawBoss()
-    // instead of adding a new function to level the boss up, just added the functionality here. If your final blows kill the boss it levels up. Also adding the income function here for defeating the boss
 }
 
+// SECTION Boss Attacks Hero
 function bossAttack() {
+    // Boss Damages Hero / damage scales off level
     heroes.forEach(hero => {
         hero.health -= boss.damage*boss.level
         if (hero.health <0){
             hero.health = 0
         }
     })
+    // *** Redraw both Hero health, could optimize this im sure ****
     elmHero0Hp.innerHTML = "❤️:  " + heroes[0].health
     elmHero1Hp.innerHTML = "❤️:  " + heroes[1].health
 
 }
 
-function healthPack(){
+// SECTION Level up Hero
+function healthPack(whatHero){
+    // Checks if player has enough Gold
     let gold = elmGold.innerHTML
-    if (gold < 100){
-        return alert('not enough gold, need 100')
+    if (gold < 50){
+        return alert('not enough gold, need 50')
     }
+    // Heal Hero based off argument passed
     heroes.forEach(hero => {
-        let gold = elmGold.innerHTML
-        hero.health += 10
+        if (hero.name == whatHero){
+            let gold = elmGold.innerHTML
+            hero.health += 10
+        }
     })
+    // Dock gold and redraw
     gold -= 50
     elmGold.innerHTML = gold
 
+    // *** Redraw both Hero health, could optimize as well ***
     elmHero0Hp.innerHTML = "❤️ : " + heroes[0].health
     elmHero1Hp.innerHTML = "❤️ : " + heroes[1].health
     
 }
 
-function levelUp(){
+// SECTION Level up Hero
+function levelUp(whatHero){
+    // Checks if player has enough Gold
     let gold = elmGold.innerHTML
     console.log(gold)
-    if (gold < 200){
+    if (gold < 100){
         return alert('not enough gold, need 200')
     }
+    // Levels up hero based off argument passed
     heroes.forEach(hero => {
-        hero.level += 1
-        hero.damage += 5
-        hero.health += 20
-        elmGold.innerHTML = gold
+        if (hero.name == whatHero){
+            hero.level += 1
+            hero.damage *= 2
+            hero.health += 20
+            elmGold.innerHTML = gold
+        }
     })
+    // ***Dock Gold and redraw both heros, again could be optimized ***
     gold -= 100
     elmGold.innerHTML = gold
     elmHero0Hp.innerHTML = "❤️ : " + heroes[0].health
@@ -159,6 +185,8 @@ function levelUp(){
 
 }
 
+// Interval Boss Attack
 setInterval(bossAttack, 5000)
 
+// Initial Drawing
 drawBoss()
