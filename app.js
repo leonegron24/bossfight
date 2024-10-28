@@ -68,6 +68,7 @@ let numBoss = parseInt(intBoss)
 // });
 // }
 
+// SECTION Draw Boss
 function drawBoss(){
      let bossName = boss.name
      let bossType = boss.type
@@ -90,7 +91,7 @@ function attackBoss() {
         boss.health=0
         let gold = 0
         boss.level += 1
-        boss.maxHealth *= boss.level
+        boss.maxHealth += 200
         boss.damage *=boss.level
         boss.health = boss.maxHealth
         gold = 100*boss.level
